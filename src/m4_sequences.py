@@ -312,7 +312,7 @@ def practice_problem4c(points):
       :rtype: rg.Point | string
     """
     ####################################################################
-    # TODO: 4. Implement and test this function.
+    # Done: 4. Implement and test this function.
     #     The testing code is already written for you (above).
     #
     # IMPORTANT: This problem is your LOWEST PRIORITY for preparing
@@ -323,6 +323,14 @@ def practice_problem4c(points):
     #    DIFFICULTY:      9
     #    TIME ESTIMATE:   15 minutes.
     ####################################################################
+
+    for k in range(len(points)):
+        if is_prime(points[k].x) == True and is_prime(points[k].y)== True:
+            temp = points[k].x
+            points[k].x = points[k].y
+            points[k].y = temp
+            return points[k]
+    return "Not found"
 
 
 def run_test_practice_problem4d():
@@ -415,7 +423,11 @@ def practice_problem4d(sequence):
     #    DIFFICULTY:      7
     #    TIME ESTIMATE:   15 minutes.
     ####################################################################
-
+    total = 0
+    for k in range(len(sequence)-1,-1,-1):
+        if is_prime(sequence[k]) == True and is_prime(sequence[k-1]== True) and sequence[k] != sequence[k-1]:
+            total = total + sequence[k-1]
+    return total
 
 # ----------------------------------------------------------------------
 # Calls  main  to start the ball rolling.
